@@ -6,7 +6,7 @@
 /*   By: hutricot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/06 15:13:53 by hutricot          #+#    #+#             */
-/*   Updated: 2019/02/08 14:52:25 by hutricot         ###   ########.fr       */
+/*   Updated: 2019/02/08 16:15:54 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ void	ft_mandelbrot(t_ptr *ptr)
 {
 	int	mx_i;
 	int i[2];
-	float zoom;
+	float zoom_x;
+	float zoom_y;
 	float x1;
 	float x2;
 	float y1;
@@ -32,10 +33,10 @@ void	ft_mandelbrot(t_ptr *ptr)
 	x2 = 0.6;
 	y1 = -1.2;
 	y2 = 1.2;
-	mx_i = 50;
+	mx_i = 500;
 
-	zoom = 100;
-
+	zoom_x = WIDTH / (x2 - x1);
+	zoom_y = HEIGHT / (y2  - y1);
 
 	i[Y] = 0;
 	while (i[Y] < HEIGHT)
@@ -43,8 +44,8 @@ void	ft_mandelbrot(t_ptr *ptr)
 	i[X] = 0;
 		while (i[X] < WIDTH)
 		{
-			c_r = i[X]/zoom+x1;
-			c_i = i[Y]/zoom+y1;
+			c_r = i[X]/zoom_x+x1;
+			c_i = i[Y]/zoom_y+y1;
 			z_r = 0;
 			z_i = 0;
 			i2 = 0;
