@@ -6,18 +6,18 @@
 #    By: hutricot <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/28 15:13:34 by hutricot          #+#    #+#              #
-#    Updated: 2019/02/06 16:36:35 by hutricot         ###   ########.fr        #
+#    Updated: 2019/02/11 13:37:39 by hutricot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = fractol
-
-FILE = map_test/42.fdf
+NAME =	fractol \
 
 FLAGS = -Wall -Wextra
 
 SRC = \
 	main.c \
+	ft_mandelbrot.c \
+	ft_hook.c
 	  
 OBJ = $(SRC:.c=.o)
 
@@ -31,6 +31,9 @@ $(NAME) : $(INC) $(OBJ) $(SRC)
 	gcc $(FLAGS) -c $(SRC) -I$(INC)
 	gcc $(FLAGS) -o $(NAME) libft/libft.a $(OBJ) -I /usr/local/include -L /usr/local/lib/ -lmlx -framework OpenGl -framework AppKit 
 
+test : all
+	./$(NAME)
+	
 clean :
 	rm -f $(OBJ)
 	make clean -C libft

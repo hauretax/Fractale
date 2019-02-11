@@ -6,20 +6,21 @@
 /*   By: hutricot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/06 12:52:07 by hutricot          #+#    #+#             */
-/*   Updated: 2019/02/08 16:08:54 by hutricot         ###   ########.fr       */
+/*   Updated: 2019/02/11 15:30:23 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef H_H
 # define H_H
 # include <unistd.h>
-# define WIDTH 1400
-# define HEIGHT 1000
+# define WIDTH 1080
+# define HEIGHT 960
 # define Y 1
 # define X 0
 # include "mlx.h"
+#include <stdlib.h>
 
-typedef struct	s_fdf
+typedef struct	s_ptr
 {
 	void	*mlx;
 	void	*win;
@@ -28,6 +29,27 @@ typedef struct	s_fdf
 	int		b;
 	int		s;
 	int		v;
+	double	o[2];
+	double	h;
 }				t_ptr;
+
+typedef struct	s_value
+{
+	int		mx_i;
+	double	zoom_x;
+	double	zoom_y;
+	double x1;
+	double x2;
+	double y1;
+	double y2;
+	double c_r;
+	double c_i;
+	double z_r;
+	double z_i;
+	double tmp;
+}				t_value;
+
+void	ft_mandelbrot(t_ptr *ptr);
+void	ft_hook(void (*ft_fractal)(t_ptr *));
 
 #endif

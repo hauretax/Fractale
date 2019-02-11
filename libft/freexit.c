@@ -1,19 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   freexit.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hutricot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/06 15:13:53 by hutricot          #+#    #+#             */
-/*   Updated: 2019/02/11 14:48:52 by hutricot         ###   ########.fr       */
+/*   Created: 2019/02/11 13:50:03 by hutricot          #+#    #+#             */
+/*   Updated: 2019/02/11 13:50:51 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "h.h"
-
-int main(void)
+void	freexit(t_ptr *ptr)
 {
-	ft_hook((&ft_mandelbrot));
-	return (0);
+	int i;
+
+	i = 0;
+	if (*ptr == NULL)
+		return (0);
+	while ((ptr->tab)[i])
+	{
+		free((ptr->tab)[i]);
+		i++;
+	}
+	free(ptr->tab);
+	exit(0);
 }
