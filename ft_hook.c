@@ -6,7 +6,7 @@
 /*   By: hutricot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 13:18:02 by hutricot          #+#    #+#             */
-/*   Updated: 2019/02/11 17:07:48 by hutricot         ###   ########.fr       */
+/*   Updated: 2019/02/11 17:46:08 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,24 +18,37 @@ static int deal_key(int key, t_ptr *ptr, void (*ft_fractal)(t_ptr *))
 	if (key == 53)
 		exit (0);
 	if (key == 13)
-		ptr->o[Y] += 1;
+		ptr->o[Y] += 0.1;
 	if (key == 0)
-		ptr->o[X] += 1;
+		ptr->o[X] += 0.1;
 	if (key == 1)
-		ptr->o[Y] -= 1;
+		ptr->o[Y] -= 0.1;
 	if (key == 2)
-		ptr->o[X] -= 1;
+		ptr->o[X] -= 0.1;
 	ft_mandelbrot(ptr);
 	return (1);
 }
 
 static int where(int key, int x, int y,t_ptr *ptr)
 {
-	mlx_clear_window(ptr->mlx, ptr->win);
-	ptr->o[X] = x * 0.0018518;
-	ptr->o[Y] = y * 0.0020833;
-	ptr->h *= 0.8;
-	ft_mandelbrot(ptr);
+	if (key == 4)
+	{
+		mlx_clear_window(ptr->mlx, ptr->win);
+		ptr->o[X] = (x - WIDTH / 2) * 0.0018518;
+		ptr->o[Y] = (y - HEIGHT / 2) * 0.0020833;
+		ptr->netter;
+		ptr->h *= 0.8;
+		ft_mandelbrot(ptr);
+	}
+	if (key == 5)
+	{
+		mlx_clear_window(ptr->mlx, ptr->win);
+		ptr->o[X] = (x + WIDTH / 2) * 0.0018518;
+		ptr->o[Y] = (y + HEIGHT / 2) * 0.0020833;
+		ptr->netter;
+		ptr->h /= 0.8;
+		ft_mandelbrot(ptr);
+	}
 	return (1);
 }
 

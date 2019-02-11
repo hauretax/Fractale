@@ -6,7 +6,7 @@
 /*   By: hutricot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/06 12:52:07 by hutricot          #+#    #+#             */
-/*   Updated: 2019/02/11 15:30:23 by hutricot         ###   ########.fr       */
+/*   Updated: 2019/02/11 17:41:10 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct	s_ptr
 	int		b;
 	int		s;
 	int		v;
+	int		netter;
 	double	o[2];
 	double	h;
 }				t_ptr;
