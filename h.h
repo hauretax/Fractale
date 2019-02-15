@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   h.h                                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hutricot <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: hutricot <hutricot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/06 12:52:07 by hutricot          #+#    #+#             */
-/*   Updated: 2019/02/11 17:41:10 by hutricot         ###   ########.fr       */
+/*   Updated: 2019/02/15 14:33:31 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ typedef struct	s_ptr
 	int		s;
 	int		v;
 	int		netter;
+	double	c_o;
+	double	z;
 	double	o[2];
 	double	h;
 }				t_ptr;
