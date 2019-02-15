@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_hook.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hutricot <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: hutricot <hutricot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 13:18:02 by hutricot          #+#    #+#             */
-/*   Updated: 2019/02/11 17:46:08 by hutricot         ###   ########.fr       */
+/*   Updated: 2019/02/15 14:24:06 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,7 @@ void	ft_hook(void (*ft_fractal)(t_ptr *))
 
 	ptr.o[X] = 0;
 	ptr.o[Y] = 0;
-	ptr.o[2] = 0;
-	ptr.h = 1.5;
+	ptr.h = 1;
 	ptr.mlx = mlx_init();
 	ptr.win = mlx_new_window(ptr.mlx, WIDTH, HEIGHT, "tas vus ma fractol ?");
 	ptr.img = mlx_new_image(ptr.mlx, WIDTH, HEIGHT);

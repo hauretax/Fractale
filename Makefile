@@ -6,7 +6,7 @@
 #    By: hutricot <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/28 15:13:34 by hutricot          #+#    #+#              #
-#    Updated: 2019/02/11 13:37:39 by hutricot         ###   ########.fr        #
+#    Updated: 2019/02/15 14:22:17 by hutricot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ FLAGS = -Wall -Wextra
 SRC = \
 	main.c \
 	ft_mandelbrot.c \
-	ft_hook.c
+	ft_hook.c \
 	  
 OBJ = $(SRC:.c=.o)
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_mandelbrot.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hutricot <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: hutricot <hutricot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 11:56:14 by hutricot          #+#    #+#             */
-/*   Updated: 2019/02/11 17:41:49 by hutricot         ###   ########.fr       */
+/*   Updated: 2019/02/15 14:21:16 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,10 @@ void	ft_mandelbrot(t_ptr *ptr)
 	int 	i[2];
 	t_value v;
 
-	v.x1 = ptr->o[X] - ptr->h;
-	v.x2 = ptr->o[X] + ptr->h;
-	v.y1 = ptr->o[Y] - ptr->h;
-	v.y2 = ptr->o[Y] + ptr->h;
+ 	v.x1 = (-2.1 - ptr->o[X]) * ptr->h;
+    v.x2 = (0.6 - ptr->o[X]) * ptr->h;
+    v.y1 = (-1.2 - ptr->o[Y]) * ptr->h;
+    v.y2 = (1.2 - ptr->o[Y]) * ptr->h;
 	v.mx_i = 50 + ptr->netter;
 	v.zoom_x = WIDTH / (v.x2 - v.x1);
 	v.zoom_y = HEIGHT / (v.y2  - v.y1);
