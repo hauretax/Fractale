@@ -6,7 +6,7 @@
 /*   By: hutricot <hutricot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 13:18:02 by hutricot          #+#    #+#             */
-/*   Updated: 2019/02/15 17:42:06 by hutricot         ###   ########.fr       */
+/*   Updated: 2019/02/15 19:12:04 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,8 @@ static int where(int key, int x, int y,t_ptr *ptr)
 		printf ("%f\n", ptr->z);
 		ptr->h *= 0.5;
         ptr->c_o = (ptr->c_o + ((d_x * ptr->z) / WIDTH) * ((ptr->h - ptr->h * 2) / (ptr->h * ptr->h * 2)));
-		//ptr->z = 2.7 * ptr->h; 
-		//ptr->z = 2.7 * ptr->h; 
-		//ptr->z = 2.7 * ptr->h; 
+		printf ("x :%f, %f\n",((d_x * ptr->z) / WIDTH), ptr->c_o );
+		ptr->z *= 0.5;
 		ptr->o[X] += ptr->c_o;
 	//	ptr->netter = 50;
 		ft_mandelbrot(ptr);
@@ -56,8 +55,7 @@ static int where(int key, int x, int y,t_ptr *ptr)
 		ft_mandelbrot(ptr);
 		ptr->o[X] += ptr->c_o;
 		ptr->z = ptr->z1;	
-		ptr->netter = 50;
-		ptr->h /= 0.8;
+		//ptr->netter = 50;
 		ft_mandelbrot(ptr);
 	}
 	return (1);
