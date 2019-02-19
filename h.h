@@ -6,7 +6,7 @@
 /*   By: hutricot <hutricot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/06 12:52:07 by hutricot          #+#    #+#             */
-/*   Updated: 2019/02/15 16:44:42 by hutricot         ###   ########.fr       */
+/*   Updated: 2019/02/19 15:14:07 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,19 +29,16 @@ typedef struct	s_ptr
 	int		b;
 	int		s;
 	int		v;
-	int		netter;
 	double	c_o;
 	double	z;
 	long double z1;
-	double	o[2];
+	double	o[4];
 	double	h;
 }				t_ptr;
 
 typedef struct	s_value
 {
 	int		mx_i;
-	double	zoom_x;
-	double	zoom_y;
 	double x1;
 	double x2;
 	double y1;
@@ -52,6 +49,16 @@ typedef struct	s_value
 	double z_i;
 	double tmp;
 }				t_value;
+
+typedef struct s_data
+{
+	double x;
+	double y;
+	double x1;
+	double y1;
+	double x2;
+	double y2;
+}				t_data;
 
 void	ft_mandelbrot(t_ptr *ptr);
 void	ft_hook(void (*ft_fractal)(t_ptr *));

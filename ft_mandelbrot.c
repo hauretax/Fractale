@@ -6,7 +6,7 @@
 /*   By: hutricot <hutricot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 11:56:14 by hutricot          #+#    #+#             */
-/*   Updated: 2019/02/15 16:51:09 by hutricot         ###   ########.fr       */
+/*   Updated: 2019/02/19 15:14:18 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,9 @@ static void	ft_iter(t_ptr *ptr, t_value *v, int i[2])
 {
 	int i2;
 
-	v->c_r = i[X]/v->zoom_x+v->x1;
-	v->c_i = i[Y]/v->zoom_y+v->y1;
+	v->c_r = v->x1 + i[X] * (v->x2 - v->x1) / WIDTH;
+	v->c_i = v->y1 + i[Y] * (v->y2 - v->y1) / HEIGHT;
+	v->c_i = v->y2 - v->c_i + v->y1;
 	v->z_r = 0;
 	v->z_i = 0;
 	i2 = 0;
@@ -45,13 +46,11 @@ void	ft_mandelbrot(t_ptr *ptr)
 	int 	i[2];
 	t_value v;
 
- 	v.x1 = (-2.1 - ptr->o[X]) * ptr->h;
-    v.x2 = (0.6 - ptr->o[X]) * ptr->h;
-    v.y1 = (-1.2 - ptr->o[Y]) * ptr->h;
-    v.y2 = (1.2 - ptr->o[Y]) * ptr->h;
-	v.mx_i = 50 + ptr->netter;
-	v.zoom_x = WIDTH / (v.x2 - v.x1);
-	v.zoom_y = HEIGHT / (v.y2  - v.y1);
+	v.x1 = ( ptr->o[0]);
+	v.x2 = ( ptr->o[1]);
+	v.y1 = ( ptr->o[2]);
+	v.y2 = ( ptr->o[3]);
+	v.mx_i = 50;
 	i[Y] = 0;
 	while (i[Y] < HEIGHT)
 	{
