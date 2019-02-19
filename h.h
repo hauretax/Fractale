@@ -6,7 +6,7 @@
 /*   By: hutricot <hutricot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/06 12:52:07 by hutricot          #+#    #+#             */
-/*   Updated: 2019/02/19 16:50:34 by hutricot         ###   ########.fr       */
+/*   Updated: 2019/02/19 17:06:05 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,5 +63,6 @@ typedef struct s_data
 void	ft_mandelbrot(t_ptr *ptr);
 void	ft_hook(void (*ft_fractal)(t_ptr *));
 void	zoom_in(t_ptr *ptr, int x, int y);
+void	zoom_out(t_ptr *ptr, int x, int y);
 
 #endif

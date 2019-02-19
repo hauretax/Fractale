@@ -6,7 +6,7 @@
 /*   By: hutricot <hutricot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 13:18:02 by hutricot          #+#    #+#             */
-/*   Updated: 2019/02/19 16:56:59 by hutricot         ###   ########.fr       */
+/*   Updated: 2019/02/19 17:12:48 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,15 +31,12 @@ static int deal_key(int key, t_ptr *ptr, void (*ft_fractal)(t_ptr *))
 
 static int where(int key, int x, int y,t_ptr *ptr)
 {
-	t_data d;
-	t_data n;
-
+	ptr->o[0] = -2.1;
+	ptr->o[1] = 0.6;
+	ptr->o[2] = -1.2;
+	ptr->o[3] = 1.2;
 	if (key == 4 || key ==  1)
 	{
-		ptr->o[0] = -2.1;
-		ptr->o[1] = 0.6;
-		ptr->o[2] = -1.2;
-		ptr->o[3] = 1.2;
 		mlx_clear_window(ptr->mlx, ptr->win	);
         ptr->h *= 0.90;
 		zoom_in(ptr, x, y);
@@ -48,12 +45,8 @@ static int where(int key, int x, int y,t_ptr *ptr)
 	if (key == 5)
 	{
 		mlx_clear_window(ptr->mlx, ptr->win);
-		ptr->h *= 2;
-		ptr->z1 = ptr->z * ptr->h;
-		ptr->c_o = (ptr->c_o - ((ptr->z1 ) / WIDTH) * ((ptr->h - ptr->h * 0.5) / (ptr->h * ptr->h * 0.5)));
-		ptr->o[X] -= ptr->c_o;
-		ptr->z = ptr->z1;	
-		//ptr->netter = 50;
+		ptr->h /= 0.90;
+		zoom_out(ptr, x, y);
 		ft_mandelbrot(ptr);
 	}
 	return (1);
