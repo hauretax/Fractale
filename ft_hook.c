@@ -6,7 +6,7 @@
 /*   By: hutricot <hutricot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 13:18:02 by hutricot          #+#    #+#             */
-/*   Updated: 2019/02/20 16:23:19 by hutricot         ###   ########.fr       */
+/*   Updated: 2019/02/20 19:19:23 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,25 @@ static int deal_key(int key, t_ptr *ptr, void (*ft_fractal)(t_ptr *))
 	if (key == 53)
 		exit (0);
 	if (key == 13)
-		ptr->o[Y] += 0;
+		ptr->o[B] -= 0.1;
+	if (key == 13)
+		ptr->o[T] -= 0.1;
 	if (key == 0)
-		ptr->o[X] += 0;
+		ptr->o[L] += 0.1;
+	if (key == 0)
+		ptr->o[R] += 0.1;
 	if (key == 1)
-		ptr->o[Y] -= 0;
+		ptr->o[T] += 0.1;
+	if (key == 1)
+		ptr->o[B] += 0.1;
 	if (key == 2)
-		ptr->o[X] -= 0;
+		ptr->o[L] -= 0.1;
+	if (key == 2)
+		ptr->o[R] -= 0.1;
+	if (key == 69)
+		ptr->acuracy += 50;
+	if (key == 78)
+		ptr->acuracy -= 50;
 	ft_mandelbrot(ptr);
 	return (1);
 }
@@ -34,18 +46,18 @@ static int where(int key, int x, int y,t_ptr *ptr)
 	if (key == 4 || key ==  1)
 	{
 		mlx_clear_window(ptr->mlx, ptr->win	);
-        ptr->h *= 0.50;
-		zoom_in(ptr, x, y);
-		printf ("%f  ,  %f   :    %f  , %f\n", ptr->o[L], ptr->o[T], ptr->o[R], ptr->o[B]);
+        ptr->h *= 0.90;
+		zoom(ptr, x, y);
 		ft_mandelbrot(ptr);
 	}
-	if (key == 5)
+	if (key == 5 || key == 2)
 	{
 		mlx_clear_window(ptr->mlx, ptr->win);
-		ptr->h /= 0.50;
-		zoom_out(ptr, x, y);
+		ptr->h *= 1.10;
+		zoom(ptr, x, y);
 		ft_mandelbrot(ptr);
 	}
+	printf("%f\n", ptr->h);
 	return (1);
 }
 

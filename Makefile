@@ -6,7 +6,7 @@
 #    By: hutricot <hutricot@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/28 15:13:34 by hutricot          #+#    #+#              #
-#    Updated: 2019/02/19 17:06:19 by hutricot         ###   ########.fr        #
+#    Updated: 2019/02/20 18:37:29 by hutricot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,8 +18,7 @@ SRC = \
 	main.c \
 	ft_mandelbrot.c \
 	ft_hook.c \
-	zoom_in.c \
-	zoom_out.c
+	zoom.c \
 	  
 OBJ = $(SRC:.c=.o)
 

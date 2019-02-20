@@ -6,7 +6,7 @@
 /*   By: hutricot <hutricot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 11:56:14 by hutricot          #+#    #+#             */
-/*   Updated: 2019/02/19 15:14:18 by hutricot         ###   ########.fr       */
+/*   Updated: 2019/02/20 19:16:13 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	ft_mandelbrot(t_ptr *ptr)
 	v.x2 = ( ptr->o[1]);
 	v.y1 = ( ptr->o[2]);
 	v.y2 = ( ptr->o[3]);
-	v.mx_i = 50;
+	v.mx_i = 50 + ptr->acuracy;
 	i[Y] = 0;
 	while (i[Y] < HEIGHT)
 	{
