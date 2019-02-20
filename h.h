@@ -6,7 +6,7 @@
 /*   By: hutricot <hutricot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/06 12:52:07 by hutricot          #+#    #+#             */
-/*   Updated: 2019/02/19 17:06:05 by hutricot         ###   ########.fr       */
+/*   Updated: 2019/02/20 12:59:06 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,10 @@
 # define HEIGHT 960
 # define Y 1
 # define X 0
+# define L 0
+# define R 1
+# define T 2
+# define B 3
 # include "mlx.h"
 #include <stdlib.h>
 

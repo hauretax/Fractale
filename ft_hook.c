@@ -6,7 +6,7 @@
 /*   By: hutricot <hutricot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 13:18:02 by hutricot          #+#    #+#             */
-/*   Updated: 2019/02/19 17:23:25 by hutricot         ###   ########.fr       */
+/*   Updated: 2019/02/20 15:42:16 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,15 +31,12 @@ static int deal_key(int key, t_ptr *ptr, void (*ft_fractal)(t_ptr *))
 
 static int where(int key, int x, int y,t_ptr *ptr)
 {
-	ptr->o[0] = -2.1;
-	ptr->o[1] = 0.6;
-	ptr->o[2] = -1.2;
-	ptr->o[3] = 1.2;
 	if (key == 4 || key ==  1)
 	{
 		mlx_clear_window(ptr->mlx, ptr->win	);
         ptr->h *= 0.90;
 		zoom_in(ptr, x, y);
+		printf ("%f  ,  %f   :    %f  , %f\n", ptr->o[L], ptr->o[T], ptr->o[R], ptr->o[B]);
 		ft_mandelbrot(ptr);
 	}
 	if (key == 5)
@@ -56,10 +53,10 @@ void	ft_hook(void (*ft_fractal)(t_ptr *))
 {
 	t_ptr ptr;
 
-	ptr.o[0] = -2.1;
-	ptr.o[1] = 0.6;
-	ptr.o[2] = -1.2;
-	ptr.o[3] = 1.2;
+	ptr.o[L] = -2.1;
+	ptr.o[R] = 0.6;
+	ptr.o[T] = -1.2;
+	ptr.o[B] = 1.2;
 	ptr.c_o = 0.75;
 	ptr.h = 1;
 	ptr.mlx = mlx_init();
