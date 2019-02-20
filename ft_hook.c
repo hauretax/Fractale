@@ -6,13 +6,13 @@
 /*   By: hutricot <hutricot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 13:18:02 by hutricot          #+#    #+#             */
-/*   Updated: 2019/02/20 19:19:23 by hutricot         ###   ########.fr       */
+/*   Updated: 2019/02/20 19:35:41 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "h.h"
 
-static int deal_key(int key, t_ptr *ptr, void (*ft_fractal)(t_ptr *))
+static int deal_key(int key, t_ptr *ptr)
 {
 	mlx_clear_window(ptr->mlx, ptr->win);
 	if (key == 53)
@@ -37,7 +37,7 @@ static int deal_key(int key, t_ptr *ptr, void (*ft_fractal)(t_ptr *))
 		ptr->acuracy += 50;
 	if (key == 78)
 		ptr->acuracy -= 50;
-	ft_mandelbrot(ptr);
+	ft_init(ptr);
 	return (1);
 }
 
@@ -48,20 +48,20 @@ static int where(int key, int x, int y,t_ptr *ptr)
 		mlx_clear_window(ptr->mlx, ptr->win	);
         ptr->h *= 0.90;
 		zoom(ptr, x, y);
-		ft_mandelbrot(ptr);
+		ft_init(ptr);
 	}
 	if (key == 5 || key == 2)
 	{
 		mlx_clear_window(ptr->mlx, ptr->win);
 		ptr->h *= 1.10;
 		zoom(ptr, x, y);
-		ft_mandelbrot(ptr);
+		ft_init(ptr);
 	}
 	printf("%f\n", ptr->h);
 	return (1);
 }
 
-void	ft_hook(void (*ft_fractal)(t_ptr *))
+void	ft_hook(void)
 {
 	t_ptr ptr;
 
@@ -75,7 +75,7 @@ void	ft_hook(void (*ft_fractal)(t_ptr *))
 	ptr.win = mlx_new_window(ptr.mlx, WIDTH, HEIGHT, "tas vus ma fractol ?");
 	ptr.img = mlx_new_image(ptr.mlx, WIDTH, HEIGHT);
 	ptr.con = (int *)mlx_get_data_addr(ptr.img, &(ptr.b), &(ptr.s), &(ptr.v));
-	ft_fractal(&ptr);
+	ft_init(&ptr);
 	mlx_mouse_hook(ptr.win, where, (void *)&ptr);
 	mlx_key_hook(ptr.win, deal_key, (void *)&ptr);
 	mlx_loop(ptr.mlx);

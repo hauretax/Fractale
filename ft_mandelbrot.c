@@ -6,7 +6,7 @@
 /*   By: hutricot <hutricot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 11:56:14 by hutricot          #+#    #+#             */
-/*   Updated: 2019/02/20 19:16:13 by hutricot         ###   ########.fr       */
+/*   Updated: 2019/02/20 19:31:39 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	ft_calcul(t_value *v, int *i2)
 	}
 }
 
-static void	ft_iter(t_ptr *ptr, t_value *v, int i[2])
+void	ft_mandelbrot(t_ptr *ptr, t_value *v, int i[2])
 {
 	int i2;
 
@@ -39,28 +39,4 @@ static void	ft_iter(t_ptr *ptr, t_value *v, int i[2])
 		ptr->con[i[Y] * WIDTH + i[X]] = 0xFF0000;
 	else
 		ptr->con[i[Y] * WIDTH + i[X]] = 0x000000;
-}
-
-void	ft_mandelbrot(t_ptr *ptr)
-{
-	int 	i[2];
-	t_value v;
-
-	v.x1 = ( ptr->o[0]);
-	v.x2 = ( ptr->o[1]);
-	v.y1 = ( ptr->o[2]);
-	v.y2 = ( ptr->o[3]);
-	v.mx_i = 50 + ptr->acuracy;
-	i[Y] = 0;
-	while (i[Y] < HEIGHT)
-	{
-		i[X] = 0;
-		while (i[X] < WIDTH)
-		{
-			ft_iter(ptr, &v, i);
-			i[X]++;
-		}
-		i[Y]++;
-	}
-	mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->img, 0, 0);
 }
