@@ -6,7 +6,7 @@
 /*   By: hutricot <hutricot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 13:18:02 by hutricot          #+#    #+#             */
-/*   Updated: 2019/02/20 15:42:16 by hutricot         ###   ########.fr       */
+/*   Updated: 2019/02/20 16:23:19 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static int where(int key, int x, int y,t_ptr *ptr)
 	if (key == 4 || key ==  1)
 	{
 		mlx_clear_window(ptr->mlx, ptr->win	);
-        ptr->h *= 0.90;
+        ptr->h *= 0.50;
 		zoom_in(ptr, x, y);
 		printf ("%f  ,  %f   :    %f  , %f\n", ptr->o[L], ptr->o[T], ptr->o[R], ptr->o[B]);
 		ft_mandelbrot(ptr);
@@ -42,7 +42,7 @@ static int where(int key, int x, int y,t_ptr *ptr)
 	if (key == 5)
 	{
 		mlx_clear_window(ptr->mlx, ptr->win);
-		ptr->h /= 0.90;
+		ptr->h /= 0.50;
 		zoom_out(ptr, x, y);
 		ft_mandelbrot(ptr);
 	}
