@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hutricot <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: hutricot <hutricot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 10:38:03 by hutricot          #+#    #+#             */
-/*   Updated: 2019/02/06 11:15:39 by hutricot         ###   ########.fr       */
+/*   Updated: 2019/02/21 15:07:11 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,6 @@ size_t				ft_strlen(const char *str);
 char				*ft_strstr(const char *str, const char *to_find);
 void				ft_putstr(char const *str);
 int					ft_get_line(const int fd, char **line);
+int					ft_strcmp(const char *s1, const char *s2);
 
 #endif

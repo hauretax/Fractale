@@ -6,13 +6,14 @@
 /*   By: hutricot <hutricot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/06 15:13:53 by hutricot          #+#    #+#             */
-/*   Updated: 2019/02/20 19:35:09 by hutricot         ###   ########.fr       */
+/*   Updated: 2019/02/21 15:49:35 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "h.h"
+#include "libft/libft.h"
 
-int main(void)
+int main(int argc, char **argv)
 {
 	ft_hook();
 	return (0);

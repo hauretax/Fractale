@@ -1,37 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_init.c                                          :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hutricot <hutricot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/20 19:26:58 by hutricot          #+#    #+#             */
-/*   Updated: 2019/02/21 15:30:56 by hutricot         ###   ########.fr       */
+/*   Created: 2018/07/08 11:45:26 by hutricot          #+#    #+#             */
+/*   Updated: 2019/02/21 15:22:42 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "h.h"
+#include "libft.h"
 
-void	ft_init(t_ptr *ptr)
+int		ft_strcmp(const char *s1, const char *s2)
 {
-	int 	i[2];
-	t_value v;
+	int i;
 
-	v.x1 = ( ptr->o[0]);
-	v.x2 = ( ptr->o[1]);
-	v.y1 = ( ptr->o[2]);
-	v.y2 = ( ptr->o[3]);
-	v.mx_i = 50 + ptr->acuracy;
-	i[Y] = 0;
-	while (i[Y] < HEIGHT)
-	{
-		i[X] = 0;
-		while (i[X] < WIDTH)
-		{
-			ft_mandelbrot(ptr, &v, i);
-			i[X]++;
-		}
-		i[Y]++;
-	}
-	mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->img, 0, 0);
+	i = 0;
+	while (s1[i] == s2[i] && s1[i] && s2[i])
+		i++;
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }

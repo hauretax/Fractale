@@ -6,7 +6,7 @@
 /*   By: hutricot <hutricot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 13:18:02 by hutricot          #+#    #+#             */
-/*   Updated: 2019/02/20 20:12:05 by hutricot         ###   ########.fr       */
+/*   Updated: 2019/02/21 15:42:48 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static int where(int key, int x, int y,t_ptr *ptr)
 	if (key == 4 || key ==  1)
 	{
 		mlx_clear_window(ptr->mlx, ptr->win	);
-        ptr->h *= 0.90;
+        ptr->h /= 1.10;
 		zoom(ptr, x, y);
 		ft_init(ptr);
 	}
@@ -61,13 +61,14 @@ static int where(int key, int x, int y,t_ptr *ptr)
 	return (1);
 }
 
-void	ft_hook(void)
+void	ft_hook()
 {
 	t_ptr ptr;
 
 	ptr.o[L] = -2.1;
 	ptr.o[R] = 0.6;
 	ptr.o[T] = -1.2;
+	ptr.z = 0;
 	ptr.o[B] = 1.2;
 	ptr.c_o = 0.75;
 	ptr.h = 1;

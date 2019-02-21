@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: hutricot <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: hutricot <hutricot@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 18:46:03 by hutricot          #+#    #+#              #
-#    Updated: 2019/02/06 11:15:31 by hutricot         ###   ########.fr        #
+#    Updated: 2019/02/21 15:22:59 by hutricot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,8 @@ S =		ft_strlen.c \
 		ft_lstnew.c \
 		ft_memcpy.c \
 		ft_freelst.c \
-		ft_lstsize.c
+		ft_lstsize.c \
+		ft_strcmp.c \
 
 S_O = $(S:.c=.o)
 

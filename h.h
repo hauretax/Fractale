@@ -6,15 +6,15 @@
 /*   By: hutricot <hutricot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/06 12:52:07 by hutricot          #+#    #+#             */
-/*   Updated: 2019/02/20 20:12:01 by hutricot         ###   ########.fr       */
+/*   Updated: 2019/02/21 15:44:30 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef H_H
 # define H_H
 # include <unistd.h>
-# define WIDTH 1080
-# define HEIGHT 960
+# define WIDTH (540)
+# define HEIGHT (480)
 # define Y 1
 # define X 0
 # define L 0
@@ -34,9 +34,8 @@ typedef struct	s_ptr
 	int		s;
 	int		acuracy;
 	int		v;
-	double	c_o;
-	double	z;
-	long double z1;
+	long double	c_o;
+	long double z;
 	double	o[4];
 	double	h;
 }				t_ptr;
@@ -67,7 +66,7 @@ typedef struct s_data
 
 void	ft_init(t_ptr *ptr);
 void	ft_mandelbrot(t_ptr * ptr, t_value *v, int i[2]);
-void	ft_hook(void);
+void	ft_hook();
 void	zoom(t_ptr *ptr, int x, int y);
 
 #endif
