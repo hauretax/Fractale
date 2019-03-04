@@ -6,15 +6,15 @@
 /*   By: hutricot <hutricot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/06 12:52:07 by hutricot          #+#    #+#             */
-/*   Updated: 2019/03/04 14:59:39 by hutricot         ###   ########.fr       */
+/*   Updated: 2019/03/04 16:43:06 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef H_H
 # define H_H
 # include <unistd.h>
-# define WIDTH (540)
-# define HEIGHT (480)
+# define WIDTH (540 * 2)
+# define HEIGHT (480 * 2)
 # define Y 1
 # define X 0
 # define L 0
@@ -40,6 +40,7 @@ typedef struct	s_value
 	int		acuracy;
 	long double	c_o;
 	long double z;
+	double c[2];
 	double	o[4];
 	double	h;
 	int		mx_i;
