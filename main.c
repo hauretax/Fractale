@@ -6,7 +6,7 @@
 /*   By: hutricot <hutricot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/06 15:13:53 by hutricot          #+#    #+#             */
-/*   Updated: 2019/03/04 17:02:28 by hutricot         ###   ########.fr       */
+/*   Updated: 2019/03/04 19:05:55 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,11 @@ int	main(int argc, char **argv)
 {
 	if (argc != 2)
 		return (0);
-	if (ft_strcmp("julia", argv[1]))
+	if (!(ft_strcmp("julia", argv[1])))
 		ft_hook(1);
-	if (ft_strcmp("mandelbrot", argv[1]))
+	else if (!(ft_strcmp("mandelbrot", argv[1])))
 		ft_hook(2);
+	else if (!(ft_strcmp("burningship", argv[1])))
+		ft_hook(3);
 	return (0);
 }

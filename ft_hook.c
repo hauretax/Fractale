@@ -6,7 +6,7 @@
 /*   By: hutricot <hutricot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 13:18:02 by hutricot          #+#    #+#             */
-/*   Updated: 2019/03/04 17:03:09 by hutricot         ###   ########.fr       */
+/*   Updated: 2019/03/04 19:04:02 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ static int	ft_mouss_moov(int x, int y, t_struct *s)
 
 static void	init(t_value *v, int z)
 {
-	if (z == 1)
+	if (z == 2)
 	{
 		v->o[L] = -2.1;
 		v->o[R] = 0.6;
@@ -79,7 +79,7 @@ static void	init(t_value *v, int z)
 		v->o[B] = 1.2;
 		v->c_o = 0.75;
 	}
-	if (z == 2)
+	if (z == 1 || z == 3)
 	{
 		v->o[L] = -1.1;
 		v->o[R] = 1;

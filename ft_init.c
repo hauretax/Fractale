@@ -6,7 +6,7 @@
 /*   By: hutricot <hutricot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 19:26:58 by hutricot          #+#    #+#             */
-/*   Updated: 2019/03/04 17:01:57 by hutricot         ###   ########.fr       */
+/*   Updated: 2019/03/04 19:02:40 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,11 @@ static void	julia(t_struct *s)
 
 void		ft_init(t_struct *s)
 {
-	if (s->v.z == 2)
-		julia(s);
 	if (s->v.z == 1)
+		julia(s);
+	if (s->v.z == 2)
 		mandelbrot(s);
+	if (s->v.z == 3)
+		ft_burningship(s);
 	mlx_put_image_to_window(s->ptr.mlx, s->ptr.win, s->ptr.img, 0, 0);
 }
