@@ -6,7 +6,7 @@
 /*   By: hutricot <hutricot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/06 12:52:07 by hutricot          #+#    #+#             */
-/*   Updated: 2019/03/04 12:35:27 by hutricot         ###   ########.fr       */
+/*   Updated: 2019/03/04 14:59:39 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,16 +32,16 @@ typedef struct	s_ptr
 	int		*con;
 	int		b;
 	int		s;
-	int		acuracy;
 	int		v;
-	long double	c_o;
-	long double z;
-	double	o[4];
-	double	h;
 }				t_ptr;
 
 typedef struct	s_value
 {
+	int		acuracy;
+	long double	c_o;
+	long double z;
+	double	o[4];
+	double	h;
 	int		mx_i;
 	double x1;
 	double x2;
@@ -66,13 +66,14 @@ typedef struct s_data
 
 typedef struct s_struct
 {
+	t_value v;
 	t_ptr ptr;
 }				t_struct;
 
-void	ft_init(t_ptr *ptr);
+void	ft_init(t_struct *s);
 void	ft_mandelbrot(t_ptr * ptr, t_value *v, int i[2]);
 void	ft_julia(t_ptr *ptr, t_value *v, int i[2]);
 void	ft_hook(int z);
-void	zoom(t_ptr *ptr, int x, int y);
+void	zoom(t_value *v, int x, int y);
 
 #endif
