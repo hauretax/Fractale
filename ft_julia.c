@@ -6,25 +6,24 @@
 /*   By: hutricot <hutricot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 11:56:14 by hutricot          #+#    #+#             */
-/*   Updated: 2019/03/04 16:25:30 by hutricot         ###   ########.fr       */
+/*   Updated: 2019/03/04 17:05:31 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "h.h"
 
-
 static void	ft_calcul(t_value *v, int *i2)
 {
-	while(v->z_r * v->z_r + v->z_i * v->z_i < 4 && *i2 < v->mx_i)
+	while (v->z_r * v->z_r + v->z_i * v->z_i < 4 && *i2 < v->mx_i)
 	{
 		v->tmp = v->z_r;
 		v->z_r = v->z_r * v->z_r - v->z_i * v->z_i + v->c_r;
-		v->z_i =2 * v->tmp * v->z_i + v->c_i;
+		v->z_i = 2 * v->tmp * v->z_i + v->c_i;
 		(*i2)++;
 	}
 }
 
-void	ft_julia(t_ptr *ptr, t_value *v, int i[2])
+void		ft_julia(t_ptr *ptr, t_value *v, int i[2])
 {
 	int i2;
 

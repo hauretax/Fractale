@@ -6,17 +6,17 @@
 /*   By: hutricot <hutricot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 13:18:02 by hutricot          #+#    #+#             */
-/*   Updated: 2019/03/04 16:41:02 by hutricot         ###   ########.fr       */
+/*   Updated: 2019/03/04 17:03:09 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "h.h"
 
-static int deal_key(int key, t_struct *s)
+static int	deal_key(int key, t_struct *s)
 {
 	mlx_clear_window(s->ptr.mlx, s->ptr.win);
 	if (key == 53)
-		exit (0);
+		exit(0);
 	if (key == 13)
 		s->v.o[B] -= 0.1;
 	if (key == 13)
@@ -41,12 +41,12 @@ static int deal_key(int key, t_struct *s)
 	return (1);
 }
 
-static int where(int key, int x, int y,t_struct *s)
+static int	where(int key, int x, int y, t_struct *s)
 {
-	if (key == 4 || key ==  1)
+	if (key == 4 || key == 1)
 	{
-		mlx_clear_window(s->ptr.mlx, s->ptr.win	);
-        s->v.h /= 1.10;
+		mlx_clear_window(s->ptr.mlx, s->ptr.win);
+		s->v.h /= 1.10;
 		zoom(&s->v, x, y);
 		ft_init(s);
 	}
@@ -57,22 +57,21 @@ static int where(int key, int x, int y,t_struct *s)
 		zoom(&s->v, x, y);
 		ft_init(s);
 	}
-	printf("%f\n", s->v.h);
 	return (1);
 }
 
-static int ft_mouss_moov(int x, int y, t_struct *s)
+static int	ft_mouss_moov(int x, int y, t_struct *s)
 {
 	mlx_clear_window(s->ptr.mlx, s->ptr.win);
 	s->v.c[X] = (s->v.o[R] - s->v.o[L]) * x / WIDTH + s->v.o[L];
-	s->v.c[Y] = (s->v.o[B] - s->v.o[T]) * (HEIGHT - y)  / HEIGHT  + s->v.o[T];
+	s->v.c[Y] = (s->v.o[B] - s->v.o[T]) * (HEIGHT - y) / HEIGHT + s->v.o[T];
 	ft_init(s);
 	return (0);
 }
 
-static void init(t_value *v, int z)
+static void	init(t_value *v, int z)
 {
-	if (z == 1) 
+	if (z == 1)
 	{
 		v->o[L] = -2.1;
 		v->o[R] = 0.6;
@@ -90,13 +89,13 @@ static void init(t_value *v, int z)
 	}
 }
 
-void	ft_hook(int z)
+void		ft_hook(int z)
 {
 	t_value		v;
 	t_ptr		ptr;
 	t_struct	s;
 
-	init (&v, z);
+	init(&v, z);
 	v.z = z;
 	v.h = 1;
 	ptr.mlx = mlx_init();
@@ -107,7 +106,7 @@ void	ft_hook(int z)
 	s.v = v;
 	ft_init(&s);
 	mlx_mouse_hook(ptr.win, where, (void *)&s);
-	mlx_hook(ptr.win, 6, 0,&ft_mouss_moov, &s);
+	mlx_hook(ptr.win, 6, 0, &ft_mouss_moov, &s);
 	mlx_key_hook(ptr.win, deal_key, (void *)&s);
 	mlx_loop(ptr.mlx);
 }

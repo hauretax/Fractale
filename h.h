@@ -6,7 +6,7 @@
 /*   By: hutricot <hutricot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/06 12:52:07 by hutricot          #+#    #+#             */
-/*   Updated: 2019/03/04 16:43:06 by hutricot         ###   ########.fr       */
+/*   Updated: 2019/03/04 17:10:04 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # define T 2
 # define B 3
 # include "mlx.h"
-#include <stdlib.h>
+# include <stdlib.h>
 
 typedef struct	s_ptr
 {
@@ -37,25 +37,25 @@ typedef struct	s_ptr
 
 typedef struct	s_value
 {
-	int		acuracy;
+	int			acuracy;
 	long double	c_o;
 	long double z;
-	double c[2];
-	double	o[4];
-	double	h;
-	int		mx_i;
-	double x1;
-	double x2;
-	double y1;
-	double y2;
-	double c_r;
-	double c_i;
-	double z_r;
-	double z_i;
-	double tmp;
+	double		c[2];
+	double		o[4];
+	double		h;
+	int			mx_i;
+	double		x1;
+	double		x2;
+	double		y1;
+	double		y2;
+	double		c_r;
+	double		c_i;
+	double		z_r;
+	double		z_i;
+	double		tmp;
 }				t_value;
 
-typedef struct s_data
+typedef struct	s_data
 {
 	double x;
 	double y;
@@ -65,16 +65,16 @@ typedef struct s_data
 	double y2;
 }				t_data;
 
-typedef struct s_struct
+typedef struct	s_struct
 {
-	t_value v;
-	t_ptr ptr;
+	t_value	v;
+	t_ptr	ptr;
 }				t_struct;
 
-void	ft_init(t_struct *s);
-void	ft_mandelbrot(t_ptr * ptr, t_value *v, int i[2]);
-void	ft_julia(t_ptr *ptr, t_value *v, int i[2]);
-void	ft_hook(int z);
-void	zoom(t_value *v, int x, int y);
+void			ft_init(t_struct *s);
+void			ft_mandelbrot(t_ptr *ptr, t_value *v, int i[2]);
+void			ft_julia(t_ptr *ptr, t_value *v, int i[2]);
+void			ft_hook(int z);
+void			zoom(t_value *v, int x, int y);
 
 #endif
