@@ -6,7 +6,7 @@
 /*   By: hutricot <hutricot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/06 12:52:07 by hutricot          #+#    #+#             */
-/*   Updated: 2019/02/21 15:44:30 by hutricot         ###   ########.fr       */
+/*   Updated: 2019/03/04 12:35:27 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,15 @@ typedef struct s_data
 	double y2;
 }				t_data;
 
+typedef struct s_struct
+{
+	t_ptr ptr;
+}				t_struct;
+
 void	ft_init(t_ptr *ptr);
 void	ft_mandelbrot(t_ptr * ptr, t_value *v, int i[2]);
-void	ft_hook();
+void	ft_julia(t_ptr *ptr, t_value *v, int i[2]);
+void	ft_hook(int z);
 void	zoom(t_ptr *ptr, int x, int y);
 
 #endif

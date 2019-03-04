@@ -6,7 +6,7 @@
 /*   By: hutricot <hutricot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 11:56:14 by hutricot          #+#    #+#             */
-/*   Updated: 2019/02/21 13:23:25 by hutricot         ###   ########.fr       */
+/*   Updated: 2019/03/04 12:58:25 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ void	ft_julia(t_ptr *ptr, t_value *v, int i[2])
 {
 	int i2;
 
-	v->c_r = 0.258;
-	v->c_i = 0.01;
+	v->c_r = 01.5;
+	v->c_i = 0.5;
 	v->z_r = v->x1 + i[X] * (v->x2 - v->x1) / WIDTH;
 	v->z_i = v->y1 + i[Y] * (v->y2 - v->y1) / HEIGHT;
 	v->z_i = v->y2 - v->z_i + v->y1;
