@@ -1,15 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_julia.c                                         :+:      :+:    :+:   */
+/*   ft_julia_abs.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hutricot <hutricot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/11 11:56:14 by hutricot          #+#    #+#             */
-/*   Updated: 2019/03/05 15:18:55 by hutricot         ###   ########.fr       */
+/*   Created: 2019/03/05 15:23:58 by hutricot          #+#    #+#             */
+/*   Updated: 2019/03/05 15:36:53 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "math.h"
 #include "h.h"
 
 static void	ft_calcul(t_value *v, int *i2)
@@ -17,13 +18,13 @@ static void	ft_calcul(t_value *v, int *i2)
 	while (v->z_r * v->z_r + v->z_i * v->z_i < 4 && *i2 < v->mx_i)
 	{
 		v->tmp = v->z_r;
-		v->z_r = v->z_r * v->z_r - v->z_i * v->z_i + v->c_r;
-		v->z_i = 2 * v->tmp * v->z_i + v->c_i;
+		v->z_r = fabs(v->z_r * v->z_r - v->z_i * v->z_i) + v->c_r;
+		v->z_i = fabs(2 * v->tmp * v->z_i + v->c_i);
 		(*i2)++;
 	}
 }
 
-void		ft_julia(t_ptr *ptr, t_value *v, int i[2])
+static void		ft_julia_2(t_ptr *ptr, t_value *v, int i[2])
 {
 	int i2;
 
@@ -38,4 +39,28 @@ void		ft_julia(t_ptr *ptr, t_value *v, int i[2])
 		ptr->con[i[Y] * WIDTH + i[X]] = 0x000000;
 	else
 		ptr->con[i[Y] * WIDTH + i[X]] = 0x01DF3A / (i2 + 1);
+}
+
+void	ft_julia_abs(t_struct *s)
+{
+	int		i[2];
+
+	s->v.x1 = (s->v.o[0]);
+	s->v.x2 = (s->v.o[1]);
+	s->v.y1 = (s->v.o[2]);
+	s->v.y2 = (s->v.o[3]);
+	s->v.mx_i = 50 + s->v.acuracy;
+	if (s->v.acuracy <= 0)
+		s->v.acuracy = 0;
+	i[Y] = 0;
+	while (i[Y] < HEIGHT)
+	{
+		i[X] = 0;
+		while (i[X] < WIDTH)
+		{
+			ft_julia_2(&s->ptr, &s->v, i);
+			i[X]++;
+		}
+		i[Y]++;
+	}
 }

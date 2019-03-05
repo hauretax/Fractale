@@ -6,10 +6,9 @@
 /*   By: hutricot <hutricot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/04 18:02:49 by hutricot          #+#    #+#             */
-/*   Updated: 2019/03/04 19:19:26 by hutricot         ###   ########.fr       */
+/*   Updated: 2019/03/05 15:18:56 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "h.h"
 #include "math.h"
@@ -19,18 +18,19 @@ static void	ft_calcul(t_value *v, int *i2)
 	while (v->z_r * v->z_r + v->z_i * v->z_i < 4 && *i2 < v->mx_i)
 	{
 		v->tmp = v->z_r * v->z_r - v->z_i * v->z_i + v->c_r;
-		v->z_i = fabs(2 * v->z_r * v->z_i) + v->c_i;
+		v->z_i = fabs(2 * v->z_r * v->z_i) - v->c_i;
 		v->z_r = fabs(v->tmp);
 		(*i2)++;
 	}
 }
 
-void    ft_burningship2(t_ptr *ptr, t_value *v, int i[2])
+void	ft_burningship2(t_ptr *ptr, t_value *v, int i[2])
 {
 	int i2;
 
 	v->c_r = v->x1 + i[X] * (v->x2 - v->x1) / WIDTH;
 	v->c_i = v->y1 + i[Y] * (v->y2 - v->y1) / HEIGHT;
+	v->c_i = v->y2 - v->c_i + v->y1;
 	v->z_r = 0;
 	v->z_i = 0;
 	i2 = 0;
@@ -38,10 +38,10 @@ void    ft_burningship2(t_ptr *ptr, t_value *v, int i[2])
 	if (i2 == v->mx_i)
 		ptr->con[i[Y] * WIDTH + i[X]] = 0x000000;
 	else
-		ptr->con[i[Y] * WIDTH + i[X]] = 0xFF00FF / i2;
+		ptr->con[i[Y] * WIDTH + i[X]] = 0x01DF3A / (i2 + 1);
 }
 
-void    ft_burningship(t_struct *s)
+void	ft_burningship(t_struct *s)
 {
 	int		i[2];
 

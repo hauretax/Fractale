@@ -6,7 +6,7 @@
 #    By: hutricot <hutricot@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/28 15:13:34 by hutricot          #+#    #+#              #
-#    Updated: 2019/03/04 18:38:34 by hutricot         ###   ########.fr        #
+#    Updated: 2019/03/05 15:25:46 by hutricot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,8 @@ SRC = \
 	ft_init.c \
 	ft_julia.c \
 	ft_burningship.c \
+	ft_exit.c \
+	ft_julia_abs.c
 	  
 OBJ = $(SRC:.c=.o)
 
