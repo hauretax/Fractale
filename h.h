@@ -6,7 +6,7 @@
 /*   By: hutricot <hutricot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/06 12:52:07 by hutricot          #+#    #+#             */
-/*   Updated: 2019/03/05 15:36:00 by hutricot         ###   ########.fr       */
+/*   Updated: 2019/03/05 16:23:59 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ typedef struct	s_value
 	long double	c_o;
 	int			z;
 	int			lock;
+	int			po;
 	double		c[2];
 	double		o[4];
 	double		h;
@@ -79,6 +80,7 @@ void			ft_burningship(t_struct *s);
 void			ft_hook(int z);
 void			ft_exit(t_struct *s);
 void			ft_julia_abs(t_struct *s);
+int				deal_key_2(int key, t_struct *s);
 void			zoom(t_value *v, int x, int y);
 
 #endif

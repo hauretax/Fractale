@@ -6,7 +6,7 @@
 #    By: hutricot <hutricot@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/28 15:13:34 by hutricot          #+#    #+#              #
-#    Updated: 2019/03/05 15:25:46 by hutricot         ###   ########.fr        #
+#    Updated: 2019/03/05 16:24:24 by hutricot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,8 @@ SRC = \
 	ft_julia.c \
 	ft_burningship.c \
 	ft_exit.c \
-	ft_julia_abs.c
+	ft_julia_abs.c\
+	ft_deal_key_2.c
 	  
 OBJ = $(SRC:.c=.o)
 
@@ -38,7 +39,7 @@ $(NAME) : $(INC) $(OBJ) $(SRC)
 	gcc $(FLAGS) -o $(NAME) libft/libft.a $(OBJ) -I /usr/local/include -L /usr/local/lib/ -lmlx -framework OpenGl -framework AppKit 
 
 test : all
-	./$(NAME) julia
+	./$(NAME) julia_2
 	
 clean :
 	rm -f $(OBJ)

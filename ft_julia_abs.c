@@ -6,7 +6,7 @@
 /*   By: hutricot <hutricot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/05 15:23:58 by hutricot          #+#    #+#             */
-/*   Updated: 2019/03/05 15:36:53 by hutricot         ###   ########.fr       */
+/*   Updated: 2019/03/05 16:15:22 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	ft_calcul(t_value *v, int *i2)
 	while (v->z_r * v->z_r + v->z_i * v->z_i < 4 && *i2 < v->mx_i)
 	{
 		v->tmp = v->z_r;
-		v->z_r = fabs(v->z_r * v->z_r - v->z_i * v->z_i) + v->c_r;
+		v->z_r = fabs(powf(v->z_r, v->po) - powf(v->z_i, v->po)) + v->c_r;
 		v->z_i = fabs(2 * v->tmp * v->z_i + v->c_i);
 		(*i2)++;
 	}

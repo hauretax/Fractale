@@ -6,7 +6,7 @@
 /*   By: hutricot <hutricot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 13:18:02 by hutricot          #+#    #+#             */
-/*   Updated: 2019/03/05 15:33:36 by hutricot         ###   ########.fr       */
+/*   Updated: 2019/03/05 16:13:03 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,6 +110,7 @@ void		ft_hook(int z)
 	init(&v, z);
 	v.z = z;
 	v.lock = 1;
+	v.po = 2;
 	v.h = 1;
 	ptr.mlx = mlx_init();
 	ptr.win = mlx_new_window(ptr.mlx, WIDTH, HEIGHT, "tu as vu ma fractol ?");
@@ -121,5 +122,6 @@ void		ft_hook(int z)
 	mlx_mouse_hook(ptr.win, where, (void *)&s);
 	mlx_hook(ptr.win, 6, 0, &ft_mouss_moov, &s);
 	mlx_hook(ptr.win, 2, 0, &deal_key, (void *)&s);
+	mlx_hook(ptr.win, 2, 0, &deal_key_2, &s);
 	mlx_loop(ptr.mlx);
 }
