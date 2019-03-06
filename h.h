@@ -6,13 +6,16 @@
 /*   By: hutricot <hutricot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/06 12:52:07 by hutricot          #+#    #+#             */
-/*   Updated: 2019/03/06 11:43:23 by hutricot         ###   ########.fr       */
+/*   Updated: 2019/03/06 16:38:41 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef H_H
 # define H_H
 # include <unistd.h>
+# include "mlx.h"
+# include <stdlib.h>
+# include <pthread.h>
 # define WIDTH (540)
 # define HEIGHT (480)
 # define Y 1
@@ -21,8 +24,6 @@
 # define R 1
 # define T 2
 # define B 3
-# include "mlx.h"
-# include <stdlib.h>
 
 typedef struct	s_ptr
 {
@@ -40,6 +41,7 @@ typedef struct	s_value
 	int			acuracy;
 	long double	c_o;
 	int			z;
+	int			i[2];
 	int			c_z;
 	int			lock;
 	int			po;
@@ -75,7 +77,7 @@ typedef struct	s_struct
 }				t_struct;
 
 void			ft_init(t_struct *s);
-void			ft_mandelbrot(t_ptr *ptr, t_value *v, int i[2]);
+void			mandelbrot(t_struct *s);
 void			ft_julia(t_ptr *ptr, t_value *v, int i[2]);
 void			ft_burningship(t_struct *s);
 void			ft_hook(int z);

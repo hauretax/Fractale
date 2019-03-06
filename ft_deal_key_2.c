@@ -6,7 +6,7 @@
 /*   By: hutricot <hutricot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/05 16:17:44 by hutricot          #+#    #+#             */
-/*   Updated: 2019/03/06 12:36:30 by hutricot         ###   ########.fr       */
+/*   Updated: 2019/03/06 13:42:12 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,10 @@
 
 int  deal_key_2(int key, t_struct *s)
 {
-    if (key == 69)
+    if (key == 24)
         s->v.po ++;
-    if (key == 78)
+    if (key == 27)
         s->v.po --;
-    if (s->v.po == 0)
-        s->v.po = 1;
     if (key == 53)
         ft_exit(s);
     return(1);
