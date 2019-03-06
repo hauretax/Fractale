@@ -6,7 +6,7 @@
 /*   By: hutricot <hutricot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/05 16:17:44 by hutricot          #+#    #+#             */
-/*   Updated: 2019/03/05 16:24:03 by hutricot         ###   ########.fr       */
+/*   Updated: 2019/03/06 12:36:30 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,13 @@
 
 int  deal_key_2(int key, t_struct *s)
 {
-    mlx_clear_window(s->ptr.mlx, s->ptr.win);
-    s->v.po ++;
-    ft_init(s);
+    if (key == 69)
+        s->v.po ++;
+    if (key == 78)
+        s->v.po --;
+    if (s->v.po == 0)
+        s->v.po = 1;
+    if (key == 53)
+        ft_exit(s);
     return(1);
 }

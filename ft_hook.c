@@ -6,7 +6,7 @@
 /*   By: hutricot <hutricot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 13:18:02 by hutricot          #+#    #+#             */
-/*   Updated: 2019/03/05 16:13:03 by hutricot         ###   ########.fr       */
+/*   Updated: 2019/03/06 12:36:16 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 static int	deal_key(int key, t_struct *s)
 {
 	mlx_clear_window(s->ptr.mlx, s->ptr.win);
-	if (key == 53)
-		ft_exit(s);
 	if (key == 13)
 		s->v.o[B] -= 0.1;
 	if (key == 13)
@@ -37,6 +35,7 @@ static int	deal_key(int key, t_struct *s)
 		s->v.acuracy += 50;
 	if (key == 78)
 		s->v.acuracy -= 50;
+	deal_key_2(key, s);
 	ft_init(s);
 	return (1);
 }
@@ -46,6 +45,9 @@ static int	where(int key, int x, int y, t_struct *s)
 	if (key == 4)
 	{
 		mlx_clear_window(s->ptr.mlx, s->ptr.win);
+		if (s->v.c_z == 2)
+			s->v.h = 1 / 1.10;
+		s->v.c_z = 1;
 		s->v.h /= 1.10;
 		zoom(&s->v, x, y);
 		ft_init(s);
@@ -55,6 +57,9 @@ static int	where(int key, int x, int y, t_struct *s)
 	if (key == 5)
 	{
 		mlx_clear_window(s->ptr.mlx, s->ptr.win);
+		if (s->v.c_z == 1)
+			s->v.h = 1 * 1.10;
+		s->v.c_z = 2;
 		s->v.h *= 1.10;
 		zoom(&s->v, x, y);
 		ft_init(s);
@@ -122,6 +127,5 @@ void		ft_hook(int z)
 	mlx_mouse_hook(ptr.win, where, (void *)&s);
 	mlx_hook(ptr.win, 6, 0, &ft_mouss_moov, &s);
 	mlx_hook(ptr.win, 2, 0, &deal_key, (void *)&s);
-	mlx_hook(ptr.win, 2, 0, &deal_key_2, &s);
 	mlx_loop(ptr.mlx);
 }

@@ -6,7 +6,7 @@
 /*   By: hutricot <hutricot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/06 12:52:07 by hutricot          #+#    #+#             */
-/*   Updated: 2019/03/05 16:23:59 by hutricot         ###   ########.fr       */
+/*   Updated: 2019/03/06 11:43:23 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ typedef struct	s_value
 	int			acuracy;
 	long double	c_o;
 	int			z;
+	int			c_z;
 	int			lock;
 	int			po;
 	double		c[2];

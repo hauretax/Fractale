@@ -6,7 +6,7 @@
 /*   By: hutricot <hutricot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/05 15:23:58 by hutricot          #+#    #+#             */
-/*   Updated: 2019/03/05 16:15:22 by hutricot         ###   ########.fr       */
+/*   Updated: 2019/03/06 12:35:28 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	ft_calcul(t_value *v, int *i2)
 	}
 }
 
-static void		ft_julia_2(t_ptr *ptr, t_value *v, int i[2])
+static void	ft_julia_2(t_ptr *ptr, t_value *v, int i[2])
 {
 	int i2;
 
@@ -41,7 +41,7 @@ static void		ft_julia_2(t_ptr *ptr, t_value *v, int i[2])
 		ptr->con[i[Y] * WIDTH + i[X]] = 0x01DF3A / (i2 + 1);
 }
 
-void	ft_julia_abs(t_struct *s)
+void		ft_julia_abs(t_struct *s)
 {
 	int		i[2];
 
