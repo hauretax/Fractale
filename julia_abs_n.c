@@ -6,7 +6,7 @@
 /*   By: hutricot <hutricot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/07 11:41:03 by hutricot          #+#    #+#             */
-/*   Updated: 2019/03/07 12:44:28 by hutricot         ###   ########.fr       */
+/*   Updated: 2019/03/07 13:45:51 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ void	*julia_abs4(void *arg)
 	pthread_exit(0);
 }
 
-void		julia_abs(t_struct *s)
+void	julia_abs(t_struct *s)
 {
 	pthread_t	th[4];
 	t_struct	s_m[4];

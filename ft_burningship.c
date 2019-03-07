@@ -6,7 +6,7 @@
 /*   By: hutricot <hutricot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 11:56:14 by hutricot          #+#    #+#             */
-/*   Updated: 2019/03/07 13:40:22 by hutricot         ###   ########.fr       */
+/*   Updated: 2019/03/07 13:57:23 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	ft_calcul(t_value *v, int *i2)
 	}
 }
 
-void	ft_burningship(t_struct *s)
+void		ft_burningship(t_struct *s)
 {
 	int i2;
 
