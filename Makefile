@@ -6,7 +6,7 @@
 #    By: hutricot <hutricot@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/28 15:13:34 by hutricot          #+#    #+#              #
-#    Updated: 2019/03/05 16:24:24 by hutricot         ###   ########.fr        #
+#    Updated: 2019/03/07 13:40:41 by hutricot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,14 +17,19 @@ FLAGS = -Wall -Wextra
 SRC = \
 	main.c \
 	ft_mandelbrot.c \
+	mandelbrot_n.c \
+	ft_julia.c \
+	julia_n.c \
+	ft_burningship.c \
+	burningship_n.c \
+	ft_julia_abs.c \
+	julia_abs_n.c \
 	ft_hook.c \
 	zoom.c \
 	ft_init.c \
-	ft_julia.c \
-	ft_burningship.c \
 	ft_exit.c \
-	ft_julia_abs.c\
-	ft_deal_key_2.c
+	ft_deal_key_2.c \
+
 	  
 OBJ = $(SRC:.c=.o)
 

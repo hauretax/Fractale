@@ -6,7 +6,7 @@
 /*   By: hutricot <hutricot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/06 12:52:07 by hutricot          #+#    #+#             */
-/*   Updated: 2019/03/06 16:38:41 by hutricot         ###   ########.fr       */
+/*   Updated: 2019/03/07 13:42:16 by hutricot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,12 +77,16 @@ typedef struct	s_struct
 }				t_struct;
 
 void			ft_init(t_struct *s);
-void			mandelbrot(t_struct *s);
-void			ft_julia(t_ptr *ptr, t_value *v, int i[2]);
+void			ft_julia(t_struct *s);
+void			julia(t_struct *s);
 void			ft_burningship(t_struct *s);
+void			burningship(t_struct *s);
+void			ft_julia_abs(t_struct *s);
+void			julia_abs(t_struct *s);
+void			ft_mandelbrot(t_struct *s);
+void			mandelbrot(t_struct *s);
 void			ft_hook(int z);
 void			ft_exit(t_struct *s);
-void			ft_julia_abs(t_struct *s);
 int				deal_key_2(int key, t_struct *s);
 void			zoom(t_value *v, int x, int y);
 
