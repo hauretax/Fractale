@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fractale - Burningship et Julia</title>
+  <style>
+    canvas {
+      display: block;
+      margin: auto;
+      border: 1px solid #ccc;
+      background: black;
+    }
+    body {
+      background: #111;
+      color: white;
+      font-family: sans-serif;
+      text-align: center;
+    }
+    .controls {
+      margin-top: 20px;
+    }
+    input[type="range"] {
+      width: 200px;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Fractales - Burningship et Julia</h1>
+  <canvas id="canvas" width="540" height="480"></canvas>
+  
+  <div class="controls">
+    <button onclick="setFractal('burningship')">Burningship</button>
+    <button onclick="setFractal('julia')">Julia</button>
+    <div id="julia_controls" class="hidden">
+      <div>
+        <label for="c_r_slider">c_r: </label>
+        <input type="range" id="c_r_slider" min="-2" max="2" step="0.001" value="0.285" />
+        <span id="c_r_value">0.285</span>
+      </div>
+      <div>
+        <label for="c_i_slider">c_i: </label>
+        <input type="range" id="c_i_slider" min="-2" max="2" step="0.001" value="0" />
+        <span id="c_i_value">0</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const canvas = document.getElementById("canvas");
+    const ctx = canvas.getContext("2d");
+    const WIDTH = canvas.width;
+    const HEIGHT = canvas.height;
+
+    let x1 = -2;
+    let x2 = 1.5;
+    let y1 = -1.5;
+    let y2 = 1.5;
+    let maxIter = 150;
+    let c_r = 0.285; // Default for Julia
+    let c_i = 0;     // Default for Julia
+    let fractalType = 'burningship'; // Start with Burningship
+
+    // Function to switch between Burningship and Julia
+    function setFractal(type) {
+      fractalType = type;
+      if (fractalType === 'julia') {
+        document.getElementById('julia_controls').classList.remove('hidden');
+      } else {
+        document.getElementById('julia_controls').classList.add('hidden');
+      }
+      drawFractal();
+    }
+
+    // Update the value display when the slider is changed
+    document.getElementById('c_r_slider').addEventListener('input', (e) => {
+      c_r = parseFloat(e.target.value);
+      document.getElementById('c_r_value').textContent = c_r.toFixed(3);
+      drawFractal();
+    });
+
+    document.getElementById('c_i_slider').addEventListener('input', (e) => {
+      c_i = parseFloat(e.target.value);
+      document.getElementById('c_i_value').textContent = c_i.toFixed(3);
+      drawFractal();
+    });
+
+    function drawBurningship() {
+      const image = ctx.createImageData(WIDTH, HEIGHT);
+
+      for (let py = 0; py < HEIGHT; py++) {
+        for (let px = 0; px < WIDTH; px++) {
+          const cr = x1 + (px / WIDTH) * (x2 - x1);
+          const ci = y1 + (py / HEIGHT) * (y2 - y1);
+          let zr = 0, zi = 0, i = 0;
+
+          while (zr * zr + zi * zi < 4 && i < maxIter) {
+            const tmp = zr * zr - zi * zi + cr;
+            zi = Math.abs(2 * zr * zi) - ci;
+            zr = Math.abs(tmp);
+            i++;
+          }
+
+          const color = i === maxIter ? 0 : 0x1DF3A / (i + 1);
+          const idx = (py * WIDTH + px) * 4;
+          image.data[idx] = (color >> 16) & 0xFF;
+          image.data[idx + 1] = (color >> 8) & 0xFF;
+          image.data[idx + 2] = color & 0xFF;
+          image.data[idx + 3] = 255;
+        }
+      }
+      ctx.putImageData(image, 0, 0);
+    }
+
+    function drawJulia() {
+      const image = ctx.createImageData(WIDTH, HEIGHT);
+
+      for (let py = 0; py < HEIGHT; py++) {
+        for (let px = 0; px < WIDTH; px++) {
+          const cr = c_r;
+          const ci = c_i;
+          let zr = x1 + (px / WIDTH) * (x2 - x1);
+          let zi = y1 + (py / HEIGHT) * (y2 - y1);
+          let i = 0;
+
+          while (zr * zr + zi * zi < 4 && i < maxIter) {
+            const tmp = zr * zr - zi * zi + cr;
+            zi = 2 * zr * zi + ci;
+            zr = tmp;
+            i++;
+          }
+
+          const color = i === maxIter ? 0 : 0x1DF3A / (i + 1);
+          const idx = (py * WIDTH + px) * 4;
+          image.data[idx] = (color >> 16) & 0xFF;
+          image.data[idx + 1] = (color >> 8) & 0xFF;
+          image.data[idx + 2] = color & 0xFF;
+          image.data[idx + 3] = 255;
+        }
+      }
+      ctx.putImageData(image, 0, 0);
+    }
+
+    // Function to draw the current fractal
+    function drawFractal() {
+      if (fractalType === 'burningship') {
+        drawBurningship();
+      } else {
+        drawJulia();
+      }
+    }
+
+    // Handle zooming with the mouse wheel
+    canvas.addEventListener("wheel", (e) => {
+      const zoomFactor = e.deltaY < 0 ? 1.1 : 0.9;
+      const rect = canvas.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      const zx = x1 + (x / WIDTH) * (x2 - x1);
+      const zy = y1 + (y / HEIGHT) * (y2 - y1);
+
+      const newWidth = (x2 - x1) * zoomFactor;
+      const newHeight = (y2 - y1) * zoomFactor;
+
+      x1 = zx - (zx - x1) * zoomFactor;
+      x2 = x1 + newWidth;
+
+      y1 = zy - (zy - y1) * zoomFactor;
+      y2 = y1 + newHeight;
+
+      drawFractal();
+    });
+
+    // Initial fractal drawing
+    drawFractal();
+  </script>
+</body>
+</html>
